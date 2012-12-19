@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head>
     <?php
-        require ('./includes/language.php');
         require ('./includes/header.php');        
     ?>
 <link href="./css/style.css" rel="stylesheet">
@@ -12,13 +11,6 @@
      <?php
         require ('./includes/navbar.php');
         require ('./db-conn.php');
-        require ('./includes/variables.php');
-        require ('./includes/functions/core-functions.php');
-        //initialize the filter options
-        
-        
-        //get the language
-        $language = $_SESSION['lang'];
         
         $filter_values = array();
         //get the filter variable
@@ -96,17 +88,17 @@
                     <img src="./img/banner-glass-gallery.jpg" width="1000px" height="15px" >
                     <?php
                     //section for the filtered result
-                    $sql_filtered = render_filtered_sql($filter_names, $filter_values, $sort_order);       
-                    echo $sql_filtered;
+                    $sql_filtered = render_filtered_sql($filter_names, $filter_values, $sort_order); 
                     //render the glass gallery
                     $results_filtered = $db ->query($sql_filtered);
                     $num_result_filtered = $results_filtered ->num_rows;
                     if ($num_result_filtered == 0){
-                        echo NO_RESULT;
+                        echo "<br><h4>".NO_RESULT."</h4>";
                     }
                     else{
                         //render pagination
-                        require ('./includes/pagination.php');
+                        require ('./includes/pagination-display.php');
+                        //display glasses
                     }
                     $db->close();
                     ?>

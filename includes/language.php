@@ -1,31 +1,31 @@
 <?php
-session_start();
-
+if(session_id() == '') {
+    session_start(); 
+}
 //if lang is not selected
-if ( !isset ($_REQUEST['lang'])){
+if ( !isset ($_REQUEST['language'])){
     //when there is no session
-    if ( !isset($_SESSION['lang']) ){
-        $_SESSION['lang'] = 'en';
+    if ( !isset($_SESSION['language']) ){
+        $_SESSION['language'] = 'en';
     }
     //use previous session if exists
-    $lang = $_SESSION['lang'];
+    $language = $_SESSION['language'];
 }
 else {
     //when user selects a language
-    $lang = $_REQUEST['lang'];
-    $_SESSION['lang'] = $lang;
+    $language = $_REQUEST['language'];
+    $_SESSION['language'] = $language;
 }
 
-
-switch ($lang){
+switch ($language){
     case 'en':
-        $lang_file = 'english.php';
+        $language_file = 'english.php';
         break;
     case 'cn':
-        $lang_file = 'chinese.php';
+        $language_file = 'chinese.php';
         break;
     default:
-        $lang_file = 'english.php';
+        $language_file = 'english.php';
 }
-include_once './includes/languages/'.$lang_file;
+include_once ('./includes/languages/'.$language_file);
 ?>

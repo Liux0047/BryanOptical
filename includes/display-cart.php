@@ -1,7 +1,7 @@
-<table class='cart-table'>
+<table class='cart-table table-hover'>
     <thead>
         <tr class="alert alert-info">
-            <th ><span class="span3"><h4><?php echo CART_ITEM ?></h4></span></th>
+            <th ><span class="span2"><h4><?php echo CART_ITEM ?></h4></span></th>
             <th ><span class="span2"><h4><?php echo QUANTITY ?></h4></span></th>
             <th ><span class="span2"><h4><?php echo ITEM_PRICE ?></h4></span></th>
             <th ><span class="span2"><h4><?php echo ITEM_TOTAL ?></h4></span></th>
@@ -33,14 +33,14 @@
                 echo "<td rowspan='5'><span class='span3'><img src='./img/gallery/".$row['img_path']."/small-display.jpg' class='glasses-img-small'>";
                 echo "<br><strong>".LENS_TYPE."</strong>: ".$item['lens_type']."</span></td>";
                 echo "<td><span class='span1'></span></td>";
-                echo "<td rowspan='5' colspan='2'>";                
-                echo "<table class='prescription-info-table'></tbody>";           
+                echo "<td rowspan='5'>";                
+                echo "<table class='prescription-info-table'>";           
                 
-                echo "<tr>";
-                echo "<th colspan='2'><h5>".PRESCRIPTION_INFO."</h5></th>";
-                echo "</tr>";
+                echo "<thead><tr>";
+                echo "<th colspan='2'><h4>".PRESCRIPTION_INFO."</h4></th>";
+                echo "</tr></thead>";
 
-                echo "<tr>";
+                echo "<tbody><tr>";
                 echo "<td><span class='span1'></span></td>";
                 echo "<td><strong><span class='span1'>".SPH."</span></strong></td>";
                 echo "<td><strong><span class='span1'>".CYL."</span></strong></td>";
@@ -75,8 +75,12 @@
                 //modify and delete button
                 echo "<tr><td colspan='4'>";
                 echo "<div class='btn-group pull-right'>";
-                echo "<a href='./prescription.php?product_id=".$product_id."' class='btn btn-primary'>Edit this order</a>";
-                echo "<a href='./show-cart.php?delete_product_id=".$product_id."' class='btn'><i class='icon-trash'></i></a>";
+                echo "<a href='./prescription.php?product_id=".$product_id."' class='btn btn-primary'>";
+                echo "<i class='icon-pencil icon-white'></i> ";
+                echo EDIT_THIS_ORDER."</a>";
+                echo "<button onclick='delete_item(".$product_id.")' class='btn'>";
+                echo "<i class='icon-trash'></i> ";
+                echo REMOVE."</button>";
                 echo "</div>";
                 echo "</td></tr>";
                 

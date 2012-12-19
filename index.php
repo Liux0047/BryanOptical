@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"><head>
     <?php
-        require ('./includes/language.php');
         require ('./includes/header.php');       
-        require ('./includes/variables.php');        
-        require ('./includes/functions/core-functions.php');
     ?>
 <link href="./css/style.css" rel="stylesheet">
 <title><?php echo BRYAN_OPTICAL ?></title>
@@ -34,29 +31,22 @@
                 <div id="myCarousel" class="carousel slide">
                     <!-- Carousel items -->
                         <div class="carousel-inner">
-                            <div class="active item">
-                                <img src="img/1.jpg">
-                                <div class="carousel-caption">
-                                  <h4>First Thumbnail label</h4>
-                                  <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <img src="img/2.jpg">
-                                <div class="carousel-caption">
-                                  <h4>First Thumbnail label</h4>
-                                  <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <img src="img/3.jpg">
-                                <div class="carousel-caption">
-                                  <h4>First Thumbnail label</h4>
-                                  <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                                </div>
-                            </div>
+                            <?php 
+                            $index = 1;
+                            foreach ($carousel_item_arr as $picture_title => $picture_desc){
+                                echo "<div class='";
+                                if ($index == 1){
+                                    echo "active ";
+                                }
+                                echo "item'>";
+                                echo "<img src='./img/carousel/index-carousel-".$language."-".$index.".jpg'>";
+                                echo "<div class='carousel-caption'>";
+                                echo "<h4>".$picture_title."</h4>";
+                                echo "<p>".$picture_desc."</p>";
+                                echo "</div></div>";
+                                $index++;
+                            }
+                            ?>                            
                         </div>
                   <!-- Carousel nav -->
 
@@ -65,14 +55,19 @@
                 </div>
 
                 <div class="featured">
-                    <h2><?php echo FEATURED_PRODUCT; ?></h2>
+                    <h2>
+                        <?php echo FEATURED_PRODUCT; ?>
+                        <small><?php echo FEATURED_PRODUCT_DESC; ?> </small>
+                    </h2>
                     <hr>
 
                     <?php
                         require ('./db-conn.php');
                         $query_featured = "select * from product where featured = 1";
                         $result_featured = $db->query($query_featured);
-                        display_glasses($result_featured);
+                        $color_names = get_color_name_arr($db);
+                        $material_names = get_material_name_arr($db);
+                        display_glasses($result_featured, $color_names, $material_names);
                         $db->close();
                     ?>
                 </div>
@@ -88,6 +83,7 @@
             //carousel slides
             $('.carousel').carousel();
             //on change when selecting language
+        });
     </script>
 
     <?php

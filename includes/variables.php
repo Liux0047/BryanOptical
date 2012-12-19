@@ -7,5 +7,5 @@ $AXIS_arr = array(180,120,60,1);
 $ADD_arr = array(0.25,1.00,2.00,3.00);
 $PD_arr = array(20,30,40,50,60);
 $lens_type_arr = array('Single-vision', 'progressive');
-$site_url = 'localhost/bryanoptical/';
+$site_url = 'http://localhost/bryanoptical';
 ?>

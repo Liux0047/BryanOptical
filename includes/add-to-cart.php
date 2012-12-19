@@ -3,6 +3,11 @@ if(session_id() == '') {
     session_start(); 
 }
 
+//if not logged in, exit
+if (!isset($_SESSION['member_id'])){
+    echo "Sorry, you have not logged in";
+    exit();
+}
 if (    isset($_POST['product_id']) && isset($_POST['O_S_SPH']) && isset($_POST['lens_type']) &&
         isset($_POST['O_S_CYL']) && isset($_POST['O_S_AXIS']) && isset($_POST['O_S_ADD']) &&
         isset($_POST['O_D_SPH']) && isset($_POST['O_D_CYL']) && isset($_POST['O_D_AXIS'])&&
@@ -30,7 +35,7 @@ else {
 //if shopping cart empty
 if(!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = array();
-    $_SESSION['total_items'] = 0;
+    $_SESSION['num_items'] = 0;
     $_SESSION['total_price'] ='0.00';
 }
 
@@ -79,6 +84,6 @@ else{
 
 }
 $_SESSION['total_price'] = calculate_price($_SESSION['cart']);
-$_SESSION['total_items'] = calculate_items($_SESSION['cart']);
+$_SESSION['num_items'] = calculate_items($_SESSION['cart']);
 
 ?>

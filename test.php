@@ -28,6 +28,15 @@ require('./includes/scripts.php');
                 </div>
                 
             </div>
+    
+    <?php
+    $foo = 1;
+    $bar = 'aStr';
+    echo $bar.$foo;
+$query_string = 'foo=' . urlencode($foo) . '&bar=' . urlencode($bar);
+
+echo '<a href="mycgi?' . htmlentities($query_string) . '">url</a>';
+?>
 </body>
 
 <script type="text/javascript">

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head>
     <?php
-        require ('./includes/language.php');
         require ('./includes/header.php');        
     ?>
 <link href="css/style.css" rel="stylesheet">
@@ -23,7 +22,7 @@
         $address_line_1 = $_POST['address_line_1'];
         $address_line_2 = $_POST['address_line_2'];
         $city = $_POST['city'];
-        $state = $_POST['state'];
+        $province_state = $_POST['province_state'];
         $country = $_POST['country'];
         $postal_code = $_POST['postal_code'];
         
@@ -55,7 +54,7 @@
                 "','".$address_line_1.
                 "','".$address_line_2.
                 "','".$city.
-                "','".$state.
+                "','".$province_state.
                 "','".$country.
                 "','".$postal_code.
             "') ";

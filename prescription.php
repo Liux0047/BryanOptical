@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"><head>
     <?php
-        require ('./includes/language.php');
         require ('./includes/header.php');       
-        require ('./includes/variables.php');
-        require ('./includes/functions/core-functions.php');
     ?>
 <link href="./css/style.css" rel="stylesheet">
 <title><?php echo BRYAN_OPTICAL ?></title>
@@ -70,7 +67,7 @@
         <hr>
         <div class="row">
             <div class="span9">                
-                <form accept-charset="UTF-8" action="./show-cart.php" id="prescription_form" method="post" novalidate="novalidate">
+                <form accept-charset="UTF-8" action="./shopping-cart.php" id="prescription_form" method="post" novalidate="novalidate">
                     
                     
                     

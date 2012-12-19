@@ -23,9 +23,13 @@
 .warning{
     color:orangered;
 }
-.navbar-select, .navbar-pagination{
+.navbar-select, .navbar-pagination,.navbar-search-icon{
     margin-top: 5px;
 }
+.offset-1-right{
+    margin-right: 10px;
+}
+
 .main-logo{
      width:350px;
      height:75px;
@@ -42,9 +46,59 @@
 .prescription-info-table tbody tr td{
     text-align:right;
 }
-.ui-tabs-vertical { width: 55em; }
-.ui-tabs-vertical .ui-tabs-nav { padding: .2em .1em .2em .2em; float: left; width: 12em; }
-.ui-tabs-vertical .ui-tabs-nav li { clear: left; width: 100%; border-bottom-width: 1px !important; border-right-width: 0 !important; margin: 0 -1px .2em 0; }
-.ui-tabs-vertical .ui-tabs-nav li a { display:block; }
-.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { padding-bottom: 0; padding-right: .1em; border-right-width: 1px; border-right-width: 1px; }
-.ui-tabs-vertical .ui-tabs-panel { padding: 1em; float: right; width: 40em;}
+.icon-redcross {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-top: 1px;
+    background-image: url("../img/icons/red-cross.png");
+}
+.rating-star0, 
+.rating-star1,
+.rating-star2,
+.rating-star3,
+.rating-star4,
+.rating-star5,
+.rating-star6,
+.rating-star7,
+.rating-star8,
+.rating-star9,
+.rating-star10{
+    display: inline-block;
+    width: 100px;
+    height: 14px;
+    margin-top: 1px;    
+}
+.rating-star0{
+    background-image: url("../img/ratings/star0.png");
+}
+.rating-star1{
+    background-image: url("../img/ratings/star1.png");
+}
+.rating-star2{
+    background-image: url("../img/ratings/star2.png");
+}
+.rating-star3{
+    background-image: url("../img/ratings/star3.png");
+}
+.rating-star4{
+    background-image: url("../img/ratings/star4.png");
+}
+.rating-star5{
+    background-image: url("../img/ratings/star5.png");
+}
+.rating-star6{
+    background-image: url("../img/ratings/star6.png");
+}
+.rating-star7{
+    background-image: url("../img/ratings/star7.png");
+}
+.rating-star8{
+    background-image: url("../img/ratings/star8.png");
+}
+.rating-star9{
+    background-image: url("../img/ratings/star9.png");
+}
+.rating-star10{
+    background-image: url("../img/ratings/star10.png");
+}

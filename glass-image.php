@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"><head>
     <?php
-        require ('./includes/language.php');
         require ('./includes/header.php');       
-        require ('./includes/variables.php');        
-        require ('./includes/functions/core-functions.php');        
     ?>
 <link href="./css/style.css" rel="stylesheet">
 <title><?php echo BRYAN_OPTICAL ?></title>
@@ -103,7 +100,9 @@
             <div class="span2">
                 <?php
                 echo "<h4>".PRICE.": ".CURRENCY.$row['price']."</h4>";
-                echo "<a class='btn btn-primary' href='./prescription.php?product_id=".$row['product_id']."'>".ADD_TO_CART."</a>";
+                //echo "<h5>".OUR_RATING."</h5>";
+                //echo rating_star($row['rating'])."<br>";
+                echo add_to_cart_button($row['product_id']);
                 ?>
             </div>
         </div>
